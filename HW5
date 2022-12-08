@@ -1,0 +1,57 @@
+#Question 1
+> a <- matrix(c(7, 2, 9, 4, 12, 13), nrow = 2, ncol = 3)
+> b <- matrix(c(1, 2, 3, 7, 8, 9, 12, 13, 14, 19, 20, 21), nrow = 3, ncol = 4)
+> a %*% b
+     [,1] [,2] [,3] [,4]
+[1,]   61  229  369  565
+[2,]   49  163  258  391
+
+#Question 2a
+> dataframe <- data.frame(id = c(1, 2, 3, 4, 5), name = c("Peter", "Amy", "Ryan", "Gary", "Michelle"), salary = c(623.30, 515.20, 611.00, 729.00, 843.25))
+> dataframe
+  id     name salary
+1  1    Peter 623.30
+2  2      Amy 515.20
+3  3     Ryan 611.00
+4  4     Gary 729.00
+5  5 Michelle 843.25
+
+#Question 2b
+> new_col_dataframe <- cbind(dataframe, department = c("psychology", "statistics", "arts", "biology", "history"))
+> new_col_dataframe
+  id     name salary department
+1  1    Peter 623.30 psychology
+2  2      Amy 515.20 statistics
+3  3     Ryan 611.00       arts
+4  4     Gary 729.00    biology
+5  5 Michelle 843.25    history
+
+#Question 2c:
+> new_dataframe <- new_col_dataframe[-c(1, 3, 5), -c(2, 3)]
+> new_dataframe
+  id department
+2  2 statistics
+4  4    biology
+
+#Question 2d:
+> bargraph_df <- dataframe[-c(2, 3), -c(1)]
+> bargraph_df
+      name salary
+1    Peter 623.30
+4     Gary 729.00
+5 Michelle 843.25
+> barplot(height = bargraph_df$salary, names = bargraph_df$name)
+#picture of graph is on google doc
+
+#Question 2e:
+> max(dataframe$salary)
+[1] 843.25
+> min(dataframe$salary)
+[1] 515.2
+> median(dataframe$salary)
+[1] 623.3
+> #plot rows 1, 2, 5
+> x <- c(623.30, 515.20, 843.25)
+> mylabels <- c("Peter", "Amy", "Michelle")
+> pie(x, label = mylabels, main = "Salaries")
+#picture of graph is on google doc
